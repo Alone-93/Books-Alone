@@ -23,8 +23,6 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @Autowired
-    private UserService userService;
 
     private Logger logger= LoggerFactory.getLogger(this.getClass());
 
@@ -88,6 +86,7 @@ public class LoginController {
             HttpServletRequest request,
             HttpServletResponse response
     ) {
+
         CookieUtils.removeCookie("t",request,response);
         loginService.logout(t);
         return "redirect:/index";
